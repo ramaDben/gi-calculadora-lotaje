@@ -2,7 +2,7 @@
 
 Herramienta pública en pesos chilenos para los activos operables en **Grupo Inteligencia SpA**.
 
-**→ https://bbenja11.github.io/gi-calculadora-lotaje/**
+**→ https://ramadben.github.io/gi-calculadora-lotaje/**
 
 Responde dos preguntas:
 
