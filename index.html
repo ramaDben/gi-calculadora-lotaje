@@ -24,6 +24,7 @@
     --txt-3: #A9A5B4;
     --txt-4: #6E6A7A;
     --alerta: #FF5C7A;
+    --aviso: #FFB454;
     --linea: rgba(193, 229, 228, 0.16);
     --linea-tenue: rgba(193, 229, 228, 0.07);
     --panel: rgba(245, 243, 247, 0.05);
@@ -85,6 +86,18 @@
     background: var(--panel); border: 1px solid var(--linea);
   }
   .contexto b { color: var(--txt); }
+
+  /* Aviso de datos vencidos: lo enciende el script comparando el sello con el reloj
+     del visitante. Ámbar, separado del verde de marca: es color semántico, no acento. */
+  .vencido {
+    display: flex; align-items: baseline; gap: 10px;
+    padding: 13px 17px; border-radius: 13px;
+    border: 1px solid rgba(255, 180, 84, 0.5);
+    background: rgba(255, 180, 84, 0.09);
+    font-size: 15px; color: var(--txt);
+  }
+  .vencido[hidden] { display: none; }
+  .vencido b { font-family: var(--dato); font-weight: 600; color: var(--aviso); white-space: nowrap; }
 
   /* ---------- Paneles ---------- */
   .paneles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px; }
@@ -194,9 +207,10 @@
     <div class="contexto">
       <div>Moneda <b>CLP</b></div>
       <div>Apalancamiento <b>1:100</b></div>
-      <div>USD/CLP <b>$940.50</b></div>
-      <div>Datos al <b>27-07-2026 12:22 hora de Chile</b></div>
+      <div>USD/CLP <b>$940.00</b></div>
+      <div>Datos al <b>27-07-2026 12:40 hora de Chile</b></div>
     </div>
+    <p class="vencido" id="vencido" hidden><b id="vencido-edad">—</b><span id="vencido-texto"></span></p>
   </header>
 
   <div class="paneles">
@@ -305,10 +319,10 @@
     "nom": "Dólar / Peso Chileno",
     "dig": 2,
     "point": 0.01,
-    "precio": 940.3,
+    "precio": 939.8,
     "clpPunto": 1000.0,
-    "atr": 7.57,
-    "margen": 940300,
+    "atr": 7.66,
+    "margen": 939800,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -317,10 +331,10 @@
     "nom": "Dólar / Yen Japonés",
     "dig": 3,
     "point": 0.001,
-    "precio": 163.629,
-    "clpPunto": 574.89,
+    "precio": 163.581,
+    "clpPunto": 574.76,
     "atr": 0.521,
-    "margen": 940700,
+    "margen": 940200,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -329,10 +343,10 @@
     "nom": "Oro",
     "dig": 2,
     "point": 0.01,
-    "precio": 4082.16,
-    "clpPunto": 940.3,
+    "precio": 4090.0,
+    "clpPunto": 939.8,
     "atr": 70.09,
-    "margen": 17280396,
+    "margen": 17304381,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -341,10 +355,10 @@
     "nom": "Petróleo WTI",
     "dig": 3,
     "point": 0.001,
-    "precio": 83.939,
-    "clpPunto": 940.3,
+    "precio": 82.989,
+    "clpPunto": 939.8,
     "atr": 4.188,
-    "margen": 1184421,
+    "margen": 1170394,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -353,10 +367,10 @@
     "nom": "Nasdaq 100",
     "dig": 2,
     "point": 0.01,
-    "precio": 27928.49,
+    "precio": 28032.33,
     "clpPunto": 9.4,
     "atr": 546.11,
-    "margen": 1313617,
+    "margen": 1317800,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -365,10 +379,10 @@
     "nom": "S&P 500",
     "dig": 2,
     "point": 0.01,
-    "precio": 7404.97,
+    "precio": 7420.73,
     "clpPunto": 9.4,
     "atr": 71.36,
-    "margen": 348293,
+    "margen": 348849,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -377,10 +391,10 @@
     "nom": "Dow Jones Industrial",
     "dig": 2,
     "point": 0.01,
-    "precio": 52103.48,
+    "precio": 52199.51,
     "clpPunto": 9.4,
     "atr": 509.8,
-    "margen": 2450687,
+    "margen": 2453899,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -390,9 +404,9 @@
     "dig": 0,
     "point": 1.0,
     "precio": 13722.0,
-    "clpPunto": 28209.0,
+    "clpPunto": 28194.0,
     "atr": 177.0,
-    "margen": 11617457,
+    "margen": 11611282,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -401,10 +415,10 @@
     "nom": "Índice del dólar",
     "dig": 3,
     "point": 0.001,
-    "precio": 101.216,
-    "clpPunto": 94.03,
+    "precio": 101.187,
+    "clpPunto": 93.98,
     "atr": 0.407,
-    "margen": 476069,
+    "margen": 475680,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -416,7 +430,7 @@
     "precio": 25441.65,
     "clpPunto": 10.7,
     "atr": 333.14,
-    "margen": 1362156,
+    "margen": 1361779,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -425,10 +439,10 @@
     "nom": "Apple Inc.",
     "dig": 2,
     "point": 0.01,
-    "precio": 337.48,
-    "clpPunto": 470.15,
+    "precio": 337.18,
+    "clpPunto": 469.9,
     "atr": 7.91,
-    "margen": 79367,
+    "margen": 79254,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -437,10 +451,10 @@
     "nom": "Microsoft Corp.",
     "dig": 2,
     "point": 0.01,
-    "precio": 389.48,
-    "clpPunto": 470.15,
+    "precio": 391.42,
+    "clpPunto": 469.9,
     "atr": 10.82,
-    "margen": 91596,
+    "margen": 92003,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -449,10 +463,10 @@
     "nom": "NVIDIA Corp.",
     "dig": 2,
     "point": 0.01,
-    "precio": 196.74,
-    "clpPunto": 470.15,
+    "precio": 196.98,
+    "clpPunto": 469.9,
     "atr": 7.6,
-    "margen": 46268,
+    "margen": 46300,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -461,10 +475,10 @@
     "nom": "Amazon.com Inc.",
     "dig": 2,
     "point": 0.01,
-    "precio": 230.89,
-    "clpPunto": 470.15,
+    "precio": 231.6,
+    "clpPunto": 469.9,
     "atr": 6.27,
-    "margen": 81449,
+    "margen": 81656,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -473,10 +487,10 @@
     "nom": "Advanced Micro Devices",
     "dig": 2,
     "point": 0.01,
-    "precio": 482.24,
-    "clpPunto": 470.15,
+    "precio": 486.8,
+    "clpPunto": 469.9,
     "atr": 34.85,
-    "margen": 113411,
+    "margen": 114422,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -485,10 +499,10 @@
     "nom": "JPMorgan Chase",
     "dig": 2,
     "point": 0.01,
-    "precio": 353.9,
-    "clpPunto": 470.15,
+    "precio": 353.34,
+    "clpPunto": 469.9,
     "atr": 7.48,
-    "margen": 41614,
+    "margen": 41526,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -497,10 +511,10 @@
     "nom": "Bank of America",
     "dig": 2,
     "point": 0.01,
-    "precio": 62.14,
-    "clpPunto": 470.15,
+    "precio": 62.12,
+    "clpPunto": 469.9,
     "atr": 1.15,
-    "margen": 14614,
+    "margen": 14601,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -509,10 +523,10 @@
     "nom": "Goldman Sachs",
     "dig": 2,
     "point": 0.01,
-    "precio": 1045.15,
-    "clpPunto": 470.15,
+    "precio": 1048.69,
+    "clpPunto": 469.9,
     "atr": 38.92,
-    "margen": 122897,
+    "margen": 123247,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -521,10 +535,10 @@
     "nom": "Morgan Stanley",
     "dig": 2,
     "point": 0.01,
-    "precio": 213.12,
-    "clpPunto": 470.15,
+    "precio": 213.89,
+    "clpPunto": 469.9,
     "atr": 7.38,
-    "margen": 50120,
+    "margen": 50275,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -533,10 +547,10 @@
     "nom": "Boeing Co.",
     "dig": 2,
     "point": 0.01,
-    "precio": 211.01,
-    "clpPunto": 470.15,
+    "precio": 212.47,
+    "clpPunto": 469.9,
     "atr": 5.63,
-    "margen": 49624,
+    "margen": 49941,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -545,10 +559,10 @@
     "nom": "Caterpillar Inc.",
     "dig": 2,
     "point": 0.01,
-    "precio": 846.75,
-    "clpPunto": 470.15,
+    "precio": 856.81,
+    "clpPunto": 469.9,
     "atr": 36.63,
-    "margen": 99567,
+    "margen": 100697,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -557,10 +571,10 @@
     "nom": "GE Aerospace",
     "dig": 2,
     "point": 0.01,
-    "precio": 359.16,
-    "clpPunto": 470.15,
+    "precio": 361.26,
+    "clpPunto": 469.9,
     "atr": 10.22,
-    "margen": 42233,
+    "margen": 42457,
     "volMin": 0.01,
     "volStep": 0.01
   },
@@ -569,14 +583,15 @@
     "nom": "Deere & Co.",
     "dig": 2,
     "point": 0.01,
-    "precio": 614.86,
-    "clpPunto": 470.15,
+    "precio": 615.9,
+    "clpPunto": 469.9,
     "atr": 15.32,
-    "margen": 144600,
+    "margen": 144767,
     "volMin": 0.01,
     "volStep": 0.01
   }
 ];
+  const SELLO_ISO = "2026-07-27T12:40:42-04:00";
 
   const $ = id => document.getElementById(id);
   const pesos = n => (n === null || !isFinite(n)) ? "—" : "$" + Math.round(n).toLocaleString("es-CL");
@@ -646,6 +661,27 @@
     $("a-mov").step = activo("a-activo").point;
     $("b-stop").step = activo("b-activo").point;
   }
+
+  /* Si la página quedó sin refrescar, que se delate sola: el visitante no debería
+     tener que mirar la fecha para darse cuenta. 30 h de tolerancia para que un
+     refresco de la mañana siguiente no dispare el aviso. */
+  function avisarSiVencido() {
+    const sello = new Date(SELLO_ISO);
+    if (isNaN(sello.getTime())) return;
+    const horas = (Date.now() - sello.getTime()) / 3600000;
+    if (horas < 30) return;
+
+    const dias = Math.floor(horas / 24);
+    $("vencido-edad").textContent = dias >= 1
+      ? (dias === 1 ? "Hace 1 día" : "Hace " + dias + " días")
+      : "Hace más de un día";
+    $("vencido-texto").textContent =
+      "· estos valores no se han actualizado. El dólar y los precios ya cambiaron, "
+      + "así que tómalos como referencia y no como el valor de hoy.";
+    $("vencido").hidden = false;
+  }
+
+  avisarSiVencido();
 
   $("a-mov").value = DATOS[0].atr;
   $("b-stop").value = DATOS[0].atr;
